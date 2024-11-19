@@ -26,7 +26,7 @@ A Java-based web application designed to help users achieve their fitness goals 
 
 - **Java 11+** installed on your machine.
 - **Maven** or **Gradle** for dependency management and build automation.
-- **MySQL** or **PostgreSQL** for the database.
+- **MySQL** for the database.
 
 ### Installation
 
