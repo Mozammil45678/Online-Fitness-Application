@@ -1,0 +1,22 @@
+CREATE DATABASE fitness_app;
+
+USE fitness_app;
+
+-- User Table
+CREATE TABLE user (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(50),
+    password VARCHAR(100),
+    email VARCHAR(100)
+);
+
+-- Activity Table
+CREATE TABLE activity (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    user_id BIGINT,
+    activity_type VARCHAR(50),
+    duration INT,
+    calories_burned INT,
+    date DATE,
+    FOREIGN KEY (user_id) REFERENCES user(id)
+);

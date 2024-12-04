@@ -1,0 +1,8 @@
+spring.application.name=fitnesstracking
+spring.datasource.url=jdbc:mysql://localhost:3306/fitness_app
+spring.datasource.username=root
+spring.datasource.password=kartik@123
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.show-sql=true
+
+server. Port=8080

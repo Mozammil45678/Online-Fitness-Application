@@ -1,0 +1,10 @@
+package com.kartik.fitnesstracking.dao;
+
+import com.kartik.fitnesstracking.model.Activity;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface ActivityRepository extends JpaRepository<Activity, Long> {
+    // Custom query methods can be added here
+}

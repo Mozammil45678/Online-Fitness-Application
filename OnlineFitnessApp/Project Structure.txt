@@ -1,0 +1,8 @@
+src/main/java/com/fitnessapp
+  ├── controller
+  ├── model
+  ├── repository
+  ├── service
+  ├── config (for security setup)
+src/main/resources
+application. Propertiesapplication. Properties
