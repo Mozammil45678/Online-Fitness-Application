@@ -1,0 +1,21 @@
+1.Button Event Listener
+
+startButton.addActionListener(new ActionListener() {
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        // Start or stop workout logic
+    }
+});
+
+2.Timer for Tracking Progress
+
+Timer timer = new Timer(1000, new ActionListener() {
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        // Update progress (e.g., increment steps, duration)
+        updateProgress();
+    }
+});
+timer.start();
+
+

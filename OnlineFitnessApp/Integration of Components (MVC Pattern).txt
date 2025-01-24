@@ -1,0 +1,29 @@
+// Model
+class User {
+    private String username;
+    private double weight;
+
+    public User(String username, double weight) {
+        this.username = username;
+        this.weight = weight;
+    }
+
+    // Getters and setters...
+}
+
+// Controller
+class WorkoutController {
+    private WorkoutTracker view;
+    private User user;
+
+    public WorkoutController(WorkoutTracker view, User user) {
+        this.view = view;
+        this.user = user;
+    }
+
+    public void startWorkout() {
+        // Handle starting the workout
+    }
+
+    // Other controller logic...
+}

@@ -1,0 +1,114 @@
+1.User Registration/Login:
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+
+public class LoginForm extends JFrame {
+    private JTextField usernameField;
+    private JPasswordField passwordField;
+    private JButton loginButton;
+
+    public LoginForm() {
+        setTitle("Login");
+        setSize(300, 200);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setLayout(new FlowLayout());
+
+        usernameField = new JTextField(15);
+        passwordField = new JPasswordField(15);
+        loginButton = new JButton("Login");
+
+        add(new JLabel("Username:"));
+        add(usernameField);
+        add(new JLabel("Password:"));
+        add(passwordField);
+        add(loginButton);
+
+        loginButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String username = usernameField.getText();
+                String password = new String(passwordField.getPassword());
+
+                if (authenticate(username, password)) {
+                    JOptionPane.showMessageDialog(LoginForm.this, "Login Successful!");
+                    // Proceed to the main app or dashboard
+                } else {
+                    JOptionPane.showMessageDialog(LoginForm.this, "Invalid credentials!", "Error", JOptionPane.ERROR_MESSAGE);
+                }
+            }
+        });
+    }
+
+    private boolean authenticate(String username, String password) {
+        // Dummy authentication logic (replace with actual logic, e.g., database)
+        return username.equals("user") && password.equals("password");
+    }
+
+    public static void main(String[] args) {
+        SwingUtilities.invokeLater(() -> {
+            LoginForm form = new LoginForm();
+            form.setVisible(true);
+        });
+    }
+}
+
+2.Activity Tracking
+
+import javax.swing.*;
+import java.awt.event.*;
+import java.time.LocalTime;
+
+public class WorkoutTracker extends JFrame {
+    private JButton startButton;
+    private JLabel workoutStatusLabel;
+    private boolean isTracking = false;
+    private LocalTime startTime;
+
+    public WorkoutTracker() {
+        setTitle("Workout Tracker");
+        setSize(400, 200);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        startButton = new JButton("Start Workout");
+        workoutStatusLabel = new JLabel("Status: Not Started");
+
+        startButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (isTracking) {
+                    stopWorkout();
+                } else {
+                    startWorkout();
+                }
+            }
+        });
+
+        setLayout(new FlowLayout());
+        add(workoutStatusLabel);
+        add(startButton);
+    }
+
+    private void startWorkout() {
+        isTracking = true;
+        startTime = LocalTime.now();
+        workoutStatusLabel.setText("Status: In Progress");
+        startButton.setText("Stop Workout");
+    }
+
+    private void stopWorkout() {
+        isTracking = false;
+        LocalTime endTime = LocalTime.now();
+        long durationSeconds = java.time.Duration.between(startTime, endTime).getSeconds();
+        workoutStatusLabel.setText("Status: Completed (" + durationSeconds + " seconds)");
+        startButton.setText("Start Workout");
+    }
+
+    public static void main(String[] args) {
+        SwingUtilities.invokeLater(() -> {
+            WorkoutTracker tracker = new WorkoutTracker();
+            tracker.setVisible(true);
+        });
+    }
+}

@@ -1,0 +1,26 @@
+1. Input Validation Example
+
+public boolean validateWeightInput(String input) {
+    try {
+        double weight = Double.parseDouble(input);
+        if (weight > 0) {
+            return true;
+        } else {
+            JOptionPane.showMessageDialog(this, "Please enter a valid weight.");
+            return false;
+        }
+    } catch (NumberFormatException e) {
+        JOptionPane.showMessageDialog(this, "Invalid input! Please enter a valid number.");
+        return false;
+    }
+}
+
+2.Exception Handling
+
+try {
+    saveUserDataToDatabase(user);
+} catch (IOException e) {
+    JOptionPane.showMessageDialog(this, "Error saving data: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+} catch (SQLException e) {
+    JOptionPane.showMessageDialog(this, "Database error: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+}
