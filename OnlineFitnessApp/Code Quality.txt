@@ -1,0 +1,23 @@
+// Model
+public class FitnessUser {
+    private String name;
+    private int age;
+    private double weight;
+    private double height;
+    // Getters and setters...
+}
+
+// Controller
+public class FitnessController {
+    public void calculateBMI(FitnessUser user) {
+        double bmi = user.getWeight() / Math.pow(user.getHeight(), 2);
+        System.out.println("BMI: " + bmi);
+    }
+}
+
+// View
+public class FitnessGUI {
+    public static void main(String[] args) {
+        // Swing/AWT code for GUI here
+    }
+}
